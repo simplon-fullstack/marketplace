@@ -1,0 +1,77 @@
+h1 {
+    color:green;
+}
+
+/* MOBILE FIRST */
+/* 
+LES COLONNES APPARAISSENT SEULEMENT 
+SUR LES GRANDES TAILLES D'ECRAN 
+https://getbootstrap.com/docs/4.3/layout/overview/
+
+*/
+
+/* 
+Les media queries
+@media ( ... TESTS ...)
+{
+    ... CODE CSS...
+}
+
+comme des if 
+le code css qu'on range dans le bloc d'accoldades
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+breakpoint => seuil (en français basique: point de cassure)
+
+// Small devices (landscape phones, 576px and up)
+*/
+
+/* sans media queries */
+.ligne {
+    background-color: #aaaaaa;
+}
+
+@media (min-width:375px) {
+    /* ces règles css ne s'appliquent qu'à partir de 375px de largeur*/
+    .ligne {
+        background-color: yellow;
+    }
+    
+}
+
+
+@media (min-width: 576px) { 
+
+    /* SI JE VEUX 3 COLONNES */
+    .ligne {
+        display:flex;
+        flex-wrap: wrap;
+        width:100%;
+    }
+    .ligne > * {
+        width:calc(100% / 3);
+    }
+}
+
+/* 
+// Medium devices (tablets, 768px and up)
+*/
+@media (min-width: 768px) {
+
+}
+
+/*
+// Large devices (desktops, 992px and up)
+*/
+@media (min-width: 992px) { 
+
+}
+
+/*
+// Extra large devices (large desktops, 1200px and up)
+*/
+@media (min-width: 1200px) {
+
+}
