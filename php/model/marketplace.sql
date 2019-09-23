@@ -62,8 +62,11 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
+--
 -- POUR CREER LA TABLE contact
+--
 
+-- étape1: créer les colonnes
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `nom` varchar(160) NOT NULL,
@@ -72,8 +75,11 @@ CREATE TABLE `contact` (
   `dateMessage` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- étape2: ajouter la clé primaire sur la colonne id
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
+
+-- étape3: ajouter AUTO_INCREMENT sur la colonne id
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
