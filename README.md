@@ -112,6 +112,20 @@ ET AJOUTER UNE TABLE newsletter
 * ASTUCE: COMMENCER PAR DEFINIR LES COLONNES
 * => PERMET DE REUTILISER LES MEMES NOMS DANS LES FORMULAIRES HTML
 
+## CSS: Cascading Style Sheets
+
+* la première règle: les instructions CSS sont lues dans l'ordre
+* les instructions qui arrivent après peuvent écraser les instructions d'avant
+
+* on peut jouer aussi sur les priorités entre les règles css
+* sélecteur (un sélecteur plus précis est prioritaire)
+* !important
+
+* => CSS CALCULE UN SCORE POUR CHAQUE REGLE
+* => LE PLUS GRAND SCORE GAGNE
+* => SPECIFICITY
+
+https://www.w3schools.com/css/css_specificity.asp
 
 
 

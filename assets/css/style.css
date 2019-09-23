@@ -1,5 +1,14 @@
+/*
+ATTENTION AUX PRIORITES DANS LES REGLES CSS
+
+*/
+
+header h1 {
+    color:green !important;
+}
+
 h1 {
-    color:green;
+    color:orange !important;
 }
 
 /* MOBILE FIRST */
