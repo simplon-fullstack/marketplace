@@ -95,8 +95,22 @@ Tables:
 (pour les annonces)
 
 
+## FORMULAIRE DE NEWSLETTER
 
+* MCD: Modèle Conceptuel des Données
 
+CREER LA DATABASE (BDD) marketplace 
+AVEC LE CHARSET utf8mb4_general_ci
+
+ET AJOUTER UNE TABLE newsletter
+
+    id                  INT             INDEX=PRIMARY   A_I
+    nom                 VARCHAR(160)
+    email               VARCHAR(160)
+    dateInscription     DATETIME
+
+* ASTUCE: COMMENCER PAR DEFINIR LES COLONNES
+* => PERMET DE REUTILISER LES MEMES NOMS DANS LES FORMULAIRES HTML
 
 
 
