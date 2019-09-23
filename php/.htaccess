@@ -1,0 +1,2 @@
+# bloque l'acès aux navigateurs sur tout le dossier php/
+require all denied
