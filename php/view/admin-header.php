@@ -7,11 +7,11 @@
     <title>Site MarketPlace</title>
 
     <link rel="stylesheet" href="assets/css/site-style.css">
-    <link rel="stylesheet" href="assets/css/public-style.css">
+    <link rel="stylesheet" href="assets/css/admin-style.css">
 </head>
 <body>
     <header>
-        <h1>Site MarketPlace</h1>
+        <h1>ADMIN</h1>
         <nav>
             <ul>
                 <li><a href="index.php">accueil</a></li>

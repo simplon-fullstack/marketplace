@@ -9,6 +9,6 @@
     </footer>
 
     <script src="assets/js/site-main.js"></script>
-    <script src="assets/js/public-main.js"></script>
+    <script src="assets/js/admin-main.js"></script>
 </body>
 </html>
