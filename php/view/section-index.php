@@ -24,7 +24,7 @@
                 note: je ne laisse pas le visiteur décider de dateInscription
                 => IL FAUDRA LE COMPLETER DANS LE CODE PHP DE TRAITEMENT DU FORMULAIRE
             -->
-            <form action="api-json.php" method="POST">
+            <form class="ajax" action="api-json.php" method="POST">
                 <label>
                     <span>nom</span>
                     <input type="text" name="nom" required placeholder="entrez votre nom">
