@@ -2,7 +2,43 @@
         <section>
             <h3>Annonces</h3>
             <div class="ligne">
-                <article>
+<?php
+// ON VA ALLER CHERCHER LES ANNONCES DANS LA BASE DE DONNEES
+// DANS LA TABLE SQL annonce
+// ET ENSUITE, ON VA CREER LE CODE HTML POUR LES AFFICHER
+
+// JE CHARGE LE CODE DE MES FONCTIONS
+require_once "php/mes-fonctions.php";
+
+// JE PEUX APPELER LA FONCTION lireTable
+$tabAnnonce = lireTable("annonce");
+// PARCOURIR LE TABLEAU AVEC UNE BOUCLE
+foreach($tabAnnonce as $annonce)
+{
+    // ATTENTION $annonce EST UN TABLEAU ASSOCIATIF
+    $titre = $annonce["titre"];
+    $image = $annonce["image"];
+    $description = $annonce["description"];
+
+    // CREER LE CODE HTML POUR CHAQUE ANNONCE
+    $codeHTML =
+<<<CODEHTML
+            <article>
+                <h3>$titre</h3>
+                <img src="$image" alt="$image">
+                <p>$description</p>
+            </article>
+
+CODEHTML;
+
+    // AFFICHER LE HTML
+    echo $codeHTML;
+
+}
+
+?>
+<!--
+                    <article>
                     <h3>annonce1</h3>
                     <img src="assets/images/photo1.jpg" alt="photo1.jpg">
                     <p>description de l'annonce 1</p>
@@ -32,5 +68,6 @@
                     <img src="assets/images/photo6.jpg" alt="photo6.jpg">
                     <p>description de l'annonce 6</p>
                 </article>
+-->                
             </div>
         </section>
