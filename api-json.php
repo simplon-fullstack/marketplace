@@ -31,6 +31,11 @@ if ($idFormulaire != "")
         // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
         require "php/controller/traitement-newsletter.php";
     }
+    if ($idFormulaire == "annonce-create")
+    {
+        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
+        require "php/controller/traitement-annonce-create.php";
+    }
 }
 
 // ON AJOUTE LE MESSAGE DE CONFIRMATION POUR LE RENVOYER AU VISITEUR

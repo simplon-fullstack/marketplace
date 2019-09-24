@@ -223,5 +223,14 @@ TABLE SQL  annonce
 * UPDATE
 * DELETE
 
+## CREATE SUR LA TABLE annonce
+
+* AJOUTER LE FORMULAIRE HTML DANS 
+    php/view/admin-section-annonce.php
+* AJOUTER LE CODE DE TRAITEMENT PHP DANS 
+    php/controller/traitement-annonce-create.php
+
+* ET VERIFIER QUE TOUTE LA TUYAUTERIE FONCTIONNE...
+
 
 

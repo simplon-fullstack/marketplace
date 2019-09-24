@@ -38,6 +38,12 @@ breakpoint => seuil (en français basique: point de cassure)
 */
 
 /* sans media queries */
+html, body {
+    width:100%;
+    height:100%;
+    font-size:14px;
+}
+
 .ligne {
     background-color: #aaaaaa;
 }
@@ -47,6 +53,24 @@ img  {
     height:320px;
     object-fit: cover;
 }
+
+form {
+    width:100%;
+}
+
+form > * {
+    display:block;
+    padding:0.25rem;
+}
+
+form label span {
+    display:block;
+    padding:0.25rem;
+}
+form > button {
+    margin:0.25rem;
+}
+
 
 @media (min-width:375px) {
     /* ces règles css ne s'appliquent qu'à partir de 375px de largeur*/
