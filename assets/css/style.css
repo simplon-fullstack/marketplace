@@ -42,6 +42,12 @@ breakpoint => seuil (en français basique: point de cassure)
     background-color: #aaaaaa;
 }
 
+img  {
+    width:100%;
+    height:320px;
+    object-fit: cover;
+}
+
 @media (min-width:375px) {
     /* ces règles css ne s'appliquent qu'à partir de 375px de largeur*/
     .ligne {
