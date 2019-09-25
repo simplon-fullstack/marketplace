@@ -36,6 +36,11 @@ if ($idFormulaire != "")
         // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
         require "php/controller/traitement-annonce-create.php";
     }
+    if ($idFormulaire == "annonce-read-ajax")
+    {
+        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
+        require "php/controller/traitement-annonce-read-ajax.php";
+    }
 }
 
 // ON AJOUTE LE MESSAGE DE CONFIRMATION POUR LE RENVOYER AU VISITEUR

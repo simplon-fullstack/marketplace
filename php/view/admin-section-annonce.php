@@ -1,4 +1,5 @@
 
+
 <section>
     <h3>CREATE annonce</h3>
     <form class="ajax" action="api-json.php" method="POST">
@@ -44,3 +45,21 @@
     </form>
 
 </section>
+
+
+<!-- ZONE D'ACTION DE VUEJS -->
+<div id="app">
+    <button @click="chargerListeArticle">CHARGER LES ARTICLES</button>
+  {{ message }}
+
+    <section>
+        <h3>LISTE DES ANNONCES ({{ tabArticle.length }})</h3>
+        <div class="listeAnnonce ligne">
+            <article v-for="article in tabArticle">
+                <h3>{{ article.titre }}</h3>
+                <p>{{ article.description }}</p>
+            </article>
+        </div>
+    </section>
+
+</div>

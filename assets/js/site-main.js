@@ -64,10 +64,12 @@ function envoyerFormulaireAjax (event)
             this.querySelector(".confirmation").innerHTML = objetJS.confirmation;
         }
 
-        if (objetJS.tabBlog)
+        // SI JE SUIS AVEC VUEJS
+        // ALORS JE VAIS METTRE A JOUR tabArticle
+        if (app && app.tabArticle && objetJS.tabArticle)
         {
-            // la fonction va créer le HTML pour afficher les articles
-            creerHtmlBlog(objetJS.tabBlog);
+            console.log("mise à jour tabArticle");
+            app.tabArticle = objetJS.tabArticle;
         }
     });
 
