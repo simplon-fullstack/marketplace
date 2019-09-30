@@ -11,10 +11,36 @@ var app = new Vue({
             // { titre: 'titre1', description: 'description1'},
             // { titre: 'titre2', description: 'description2'},
             // { titre: 'titre3', description: 'description3'}
-        ]
+        ],
+        updateArticle: null, // variable qui contient l'article à modifier
       },
       // LES FONCTIONS/METHODES QU'ON VA RAJOUTER
       methods: {
+        modifierAnnonceAjax: function(event) {
+          // debug
+          console.log('modifierAnnonceAjax');
+          console.log(event.target);
+
+          // envoyer une requête AJAX
+          // pour modifier l'annonce
+          // REMPLIR LE FormData AVEC LE FORMULAIRE HTML
+          formData = new FormData(event.target);
+
+          envoyerRequeteAjax(formData, function(objetJSON){
+               console.log(objetJSON);
+               // JE VAIS COPIER LE RESULTAT DE LA REPONSE SERVEUR
+               // DANS LA PROPRIETE tabArticle DE VUEJS
+               app.tabArticle = objetJSON.tabArticle;   
+          });
+
+        },
+        modifierLigne: function (article) {
+          // debug
+          console.log("modifier");
+          console.log(article);
+          // je vais mémoriser cet article dans une propriété pour VueJS
+          this.updateArticle = article;
+        },
         supprimerLigne: function (article) {
             // debug 
             console.log('suppression');

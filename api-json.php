@@ -46,6 +46,11 @@ if ($idFormulaire != "")
         // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
         require "php/controller/traitement-annonce-delete.php";
     }
+    if ($idFormulaire == "annonce-update")
+    {
+        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
+        require "php/controller/traitement-annonce-update.php";
+    }
 }
 
 // ON AJOUTE LE MESSAGE DE CONFIRMATION POUR LE RENVOYER AU VISITEUR
