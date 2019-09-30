@@ -15,6 +15,28 @@ var app = new Vue({
       },
       // LES FONCTIONS/METHODES QU'ON VA RAJOUTER
       methods: {
+        supprimerLigne: function (article) {
+            // debug 
+            console.log('suppression');
+            console.log(article);
+
+            // envoyer une requête AJAX
+            // pour supprimer la ligne dans la table SQL annonce
+            // ON VA CHARGER LA LISTE DES ARTICLES
+            // AVEC AJAX (fetch)
+            formData = new FormData();
+            formData.append("idFormulaire", "annonce-delete");
+            formData.append("nomTable", "annonce");
+            formData.append("id", article.id);
+
+            envoyerRequeteAjax(formData, function(objetJSON){
+                 console.log(objetJSON);
+                 // JE VAIS COPIER LE RESULTAT DE LA REPONSE SERVEUR
+                 // DANS LA PROPRIETE tabArticle DE VUEJS
+                 app.tabArticle = objetJSON.tabArticle;   
+            });
+
+        },
         chargerListeArticle: function (){
             // debug
             console.log('tu as cliqué');

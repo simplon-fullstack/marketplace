@@ -58,6 +58,7 @@
             <article v-for="article in tabArticle">
                 <h3>{{ article.titre }}</h3>
                 <p>{{ article.description }}</p>
+                <button @click="supprimerLigne(article)">supprimer</button>
             </article>
         </div>
     </section>

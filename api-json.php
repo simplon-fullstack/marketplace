@@ -41,6 +41,11 @@ if ($idFormulaire != "")
         // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
         require "php/controller/traitement-annonce-read-ajax.php";
     }
+    if ($idFormulaire == "annonce-delete")
+    {
+        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
+        require "php/controller/traitement-annonce-delete.php";
+    }
 }
 
 // ON AJOUTE LE MESSAGE DE CONFIRMATION POUR LE RENVOYER AU VISITEUR
