@@ -67,6 +67,10 @@ paramVue = {};      // je crée un objet vide
     // et ensuite je le remplis
 paramVue.el     = '#app';
 
+// objet . propriété
+// objet . methode (param1, param2)
+
+
 // DATA BINDING (bind => liaison, association)
 // ON RELIE DES PROPRIETES JS (DES VARIABLES) AVEC DU HTML
 // MVVM Model View ViewModel
