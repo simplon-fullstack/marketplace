@@ -1,63 +1,26 @@
 <?php
 
-// CHARGER MES FONCTIONS POUR POUVOIR LES UTILISER ENSUITE
-require_once "php/mes-fonctions.php";
+// SI ON VEUT FAIRE DE LA POO
+// ON VA RANGER NOTRE CODE DANS UNE CLASSE ApiJson
+// ON VA RANGER NOS CLASSES DANS DES FICHIERS
+// CHAQUE CLASSE AURA SON FICHIER
+// ATTENTION: CONVENTION DE NOMMAGE LE NOM COMMENCE PAR UNE MAJUSCULE
+// ET ENSUITE ON EST EN CamelCase
+// php/class/ApiJson.php
+// AJOUTER UNE METHODE DANS LA CLASSE
+// function traiterFormulaire ()
 
-// CE FICHIER PHP SERA LE DESTINATAIRE DES FORMULAIRES HTML
-// ON VA RENVOYER DU JSON
-// AVEC PHP, JE PEUX UTILISER UN TABLEAU ASSOCIATIF ET LE CONVERTIR EN TEXTE JSON
-$tabAssoJson = [];
+// COMMENT J'ACTIVE MA METHODE traiterFormulaire
+// ETAPE1
+// CHARGER LE CODE DE MA CLASSE
+require_once "php/class/ApiJson.php";
 
-// debug
-// je recopie ce que j'ai reçu
-$tabAssoJson["date"]    = date("Y-m-d H:i:s"); // FORMAT datetime SQL
+// ETAPE2
+// CREER UN OBJET POUR POUVOIR ACTIVER LA METHODE
+$objet = new ApiJson;
 
-// IL Y A AUSSI $_GET ET $_POST
-// $_GET NE RECOIT QUE LES INFOS ENVOYEES EN GET    (LECTURE EN PRINCIPE)
-// $_POST NE RECOIT QUE LES INFOS ENVOYEES EN POST  (ECRITURE EN PRINCIPE)
-// $_REQUEST RECOIT LES 2
-$tabAssoJson["request"] = $_REQUEST;
+// ETAPE3
+// JE PASSE PAR L'OBJET POUR APPELER LA METHODE
+// -> OPERATEUR D'ACCES
+$objet -> traiterFormulaire();
 
-
-// ICI ON VA EFFECTUER LE TRAITEMENT DES FORMULAIRES
-// POUR SAVOIR QUEL FORMULAIRE DOIT ETRE TRAITE
-// JE VAIS M'AIDER DE L'INFO idFormulaire
-$idFormulaire = $_REQUEST["idFormulaire"] ?? "";
-if ($idFormulaire != "")
-{
-    // IL Y A UN FORMULAIRE A TRAITER
-    if ($idFormulaire == "newsletter")
-    {
-        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
-        require "php/controller/traitement-newsletter.php";
-    }
-    if ($idFormulaire == "annonce-create")
-    {
-        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
-        require "php/controller/traitement-annonce-create.php";
-    }
-    if ($idFormulaire == "annonce-read-ajax")
-    {
-        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
-        require "php/controller/traitement-annonce-read-ajax.php";
-    }
-    if ($idFormulaire == "annonce-delete")
-    {
-        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
-        require "php/controller/traitement-annonce-delete.php";
-    }
-    if ($idFormulaire == "annonce-update")
-    {
-        // JE DOIS TRAITER LE FORMULAIRE DE NEWSLETTER
-        require "php/controller/traitement-annonce-update.php";
-    }
-}
-
-// ON AJOUTE LE MESSAGE DE CONFIRMATION POUR LE RENVOYER AU VISITEUR
-$tabAssoJson["confirmation"] = $confirmation ?? "";
-
-// je vais le renvoyer au navigateur
-$texteJson = json_encode($tabAssoJson, JSON_PRETTY_PRINT);
-
-// on affiche le code JSON pour le navigateur
-echo $texteJson;

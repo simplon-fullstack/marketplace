@@ -392,3 +392,50 @@ https://www.cnil.fr/fr/rgpd-par-ou-commencer
 
 ## CRUD SUR LA TABLE membre
 
+SUR LA CREATION DE COMPTE, ON VA HASHER LE MOT DE PASSE
+POUR EVITER DE SE FAIRE VOLER LES MOTS DE PASSE DES UTILISATEURS
+
+
+HASHAGE ???
+    A SENS UNIQUE, ON NE VA JAMAIS DECRYPTER
+    LA SECURITE TIENT SUR LA DIFFICULTE A DECRYPTER
+
+
+CRYPTAGE ???
+    CLE DE CRYPTAGE => GARDEE SECRETE QUI DONNE LA SECURITE
+    SANS LA CLE DE CRYPTAGE => ON NE PEUT PAS DECRYPTER
+    SI ON A LA CLE ALORS ON PEUT DECRYPTER
+
+CODAGE ???
+
+
+
+ON VA STOCKER LE MOT DE PASSE SOUS UNE FORME HACHEE
+https://www.php.net/manual/fr/function.password-hash.php
+
+=> PERSONNE NE POURRA DEVINER LE MOT DE PASSE ORIGINAL
+=> LE HACHAGE DETRUIT DE L'INFORMATION
+
+exemple:
+* Fazia Bouheraoua
+* grain de sel: juiuhjhkYUYUI676788 (créé aléatoirement)
+* hashage: FzBhrjhjhk/juiuhjhkYUYUI676788
+
+si on a le mot original on obtiendra le meme hashage
+mais si on part du hashage on aura trop de possibilités pour deviner le mot original
+
+
+https://informationisbeautiful.net/visualizations/million-lines-of-code/
+
+SECURITE SUPPLEMENTAIRE POUR LE HASHAGE
+* PHP RAJOUTE UN "SALT" (UN GRAIN DE SEL) POUR COMPLIQUER LA VIE AUX PIRATES
+* LE GRAIN DE SEL VA PRODUIRE UN HASHAGE DIFFERENT MEME SI ON A 2 MOTS DE PASSE IDENTIQUES
+* (PROTECTION CONTRE LES ATTAQUES PAR DICTIONNAIRE INVERSE...)
+
+
+ET ENSUITE, ON VA POUVOIR VALIDER LE LOGIN AVEC LA FONCTION password_verify
+
+https://www.php.net/manual/fr/function.password-verify.php
+
+
+
