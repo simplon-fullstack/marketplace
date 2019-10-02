@@ -66,7 +66,7 @@ function envoyerFormulaireAjax (event)
 
         // SI JE SUIS AVEC VUEJS
         // ALORS JE VAIS METTRE A JOUR tabArticle
-        if (app && app.tabArticle && objetJS.tabArticle)
+        if ((typeof app != 'undefined') && app.tabArticle && objetJS.tabArticle)
         {
             console.log("mise à jour tabArticle");
             app.tabArticle = objetJS.tabArticle;

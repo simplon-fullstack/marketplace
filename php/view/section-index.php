@@ -13,6 +13,43 @@
         </section>
 
         <section>
+            <h3>Formulaire de création de membre</h3>
+            <!-- 
+                attribut action="api-json.php"
+                => URL destinataire des infos du formulaire 
+                détermine la cible qui va recevoir les informations du formulaire
+
+                astuce: réutiliser dans l'attribut name les noms des colonnes SQL
+
+                note: je ne laisse pas le visiteur décider de dateInscription
+                => IL FAUDRA LE COMPLETER DANS LE CODE PHP DE TRAITEMENT DU FORMULAIRE
+            -->
+            <form class="ajax" action="api-json.php" method="POST">
+                <label>
+                    <span>username</span>
+                    <input type="text" name="username" required placeholder="entrez votre username">
+                </label>
+                <label>
+                    <span>email</span>
+                    <input type="email" name="email" required placeholder="entrez votre email">
+                </label>
+                <label>
+                    <span>password</span>
+                    <input type="password" name="password" required placeholder="entrez votre password">
+                </label>
+                <!-- il faudrait demander 2 fois le mot de passe et vérifier qu'ils sont identiques -->
+                <button type="submit">créer mon compte</button>
+                <!-- DANS NOTRE FRAMEWORK ON AJOUTE DES INFOS TECHNIQUES -->
+                <div class="confirmation">
+                    <!-- ICI QU'ON VA AFFICHER LE MESSAGE DE CONFIRMATION -->
+                </div>
+                <!-- CETTE INFO SERA UTILE POUR DISTINGUER LES TRAITEMENTS EN PHP -->
+                <input type="hidden" name="idFormulaire" value="membre">
+            </form>
+        </section>
+
+
+        <section>
             <h3>Formulaire d'inscription à la newsletter</h3>
             <!-- 
                 attribut action="api-json.php"
