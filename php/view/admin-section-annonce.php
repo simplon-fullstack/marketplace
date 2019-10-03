@@ -14,7 +14,7 @@
         <input type="hidden" name="idFormulaire" value="annonce-upload">
     </form>
     <div class="listeImage ligne">
-        <img @click="choisirImage(image)" v-for="image in tabUpload" :src="image">
+        <img class="mini" @click="choisirImage(image)" v-for="image in tabUpload" :src="image">
     </div>
 </section>
 
@@ -29,7 +29,7 @@
         <label>
             <span>image</span>
             <input v-model="imageCreate" type="text" name="image" required placeholder="entrez votre URL d'image" value="assets/images/photo1.jpg">
-            <img v-if="imageCreate" :src="imageCreate">
+            <img class="mini" v-if="imageCreate" :src="imageCreate">
         </label>
         <label>
             <span>description</span>

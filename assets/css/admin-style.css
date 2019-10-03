@@ -8,7 +8,7 @@ section.update {
     overflow: auto;
 } 
 
-#app img {
+#app img.mini {
     max-width: 80px;
     max-height:80px;
     object-fit: cover;
