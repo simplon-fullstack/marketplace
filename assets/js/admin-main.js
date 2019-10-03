@@ -12,10 +12,20 @@ var app = new Vue({
             // { titre: 'titre2', description: 'description2'},
             // { titre: 'titre3', description: 'description3'}
         ],
+        tabUpload: [],
+        imageCreate: '',
         updateArticle: null, // variable qui contient l'article à modifier
+      },
+      mounted: function() {
+          ajouterAction('form.ajax', 'submit', envoyerFormulaireAjax);
       },
       // LES FONCTIONS/METHODES QU'ON VA RAJOUTER
       methods: {
+        choisirImage: function(image) {
+          console.log(image);
+          // ON MET A JOUR L'IMAGE SELECTIONNEE
+          this.imageCreate = image;
+        },
         modifierAnnonceAjax: function(event) {
           // debug
           console.log('modifierAnnonceAjax');
@@ -30,7 +40,15 @@ var app = new Vue({
                console.log(objetJSON);
                // JE VAIS COPIER LE RESULTAT DE LA REPONSE SERVEUR
                // DANS LA PROPRIETE tabArticle DE VUEJS
-               app.tabArticle = objetJSON.tabArticle;   
+               app.tabArticle = objetJSON.tabArticle;
+
+               if (app.tabUpload && objetJSON.tabUpload)
+               {
+                 console.log('ici');
+                  // mettre a jour les images   
+                  app.tabUpload = objetJSON.tabUpload;   
+
+               }
           });
 
         },
@@ -76,7 +94,15 @@ var app = new Vue({
                  // JE VAIS COPIER LE RESULTAT DE LA REPONSE SERVEUR
                  // DANS LA PROPRIETE tabArticle DE VUEJS
                  app.tabArticle = objetJSON.tabArticle;   
-            });
+                 // on charge aussi les images
+                 if (app.tabUpload && objetJSON.tabUpload)
+                 {
+                   console.log('ici');
+                    // mettre a jour les images   
+                    app.tabUpload = objetJSON.tabUpload;   
+  
+                 }
+              });
         }
     }
   })

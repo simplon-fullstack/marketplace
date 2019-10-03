@@ -7,3 +7,9 @@ section.update {
     background-color: rgba(0,0,0,0.8);
     overflow: auto;
 } 
+
+#app img {
+    max-width: 80px;
+    max-height:80px;
+    object-fit: cover;
+}

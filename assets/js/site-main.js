@@ -71,6 +71,11 @@ function envoyerFormulaireAjax (event)
             console.log("mise à jour tabArticle");
             app.tabArticle = objetJS.tabArticle;
         }
+        if ((typeof app != 'undefined') && app.tabUpload && objetJS.tabUpload)
+        {
+            console.log("mise à jour tabUpload");
+            app.tabUpload = objetJS.tabUpload;
+        }
     });
 
 }

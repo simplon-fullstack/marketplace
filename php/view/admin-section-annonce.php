@@ -1,3 +1,22 @@
+<!-- ZONE D'ACTION DE VUEJS: CONTAINER POUR VusJS -->
+
+
+<div id="app">
+
+<section>
+    <h3>FORMULAIRE POUR UPLOADER UN FICHIER</h3>
+    <!-- ATTENTION ON DOIT AJOUTER UN ATTRIBUT EN PLUS -->
+    <!-- https://www.w3schools.com/php/php_file_upload.asp -->
+    <form class="ajax" action="api-json.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">UPLOADER MON IMAGE</button>
+        <div class="confirmation"></div>
+        <input type="hidden" name="idFormulaire" value="annonce-upload">
+    </form>
+    <div class="listeImage ligne">
+        <img @click="choisirImage(image)" v-for="image in tabUpload" :src="image">
+    </div>
+</section>
 
 
 <section>
@@ -9,7 +28,8 @@
         </label>
         <label>
             <span>image</span>
-            <input type="text" name="image" required placeholder="entrez votre URL d'image" value="assets/images/photo1.jpg">
+            <input v-model="imageCreate" type="text" name="image" required placeholder="entrez votre URL d'image" value="assets/images/photo1.jpg">
+            <img v-if="imageCreate" :src="imageCreate">
         </label>
         <label>
             <span>description</span>
@@ -47,8 +67,6 @@
 </section>
 
 
-<!-- ZONE D'ACTION DE VUEJS: CONTAINER POUR VusJS -->
-<div id="app">
 
 <section  v-if="updateArticle" class="update">
     <button @click="updateArticle = null">fermer la popup</button>

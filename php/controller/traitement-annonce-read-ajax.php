@@ -7,3 +7,10 @@
 $tabArticle = lireTable("annonce");
 
 $tabAssoJson["tabArticle"] = $tabArticle;
+
+// JE VAIS RENVOYER DANS UN TABLEAU LA LISTE DES IMAGES DISPONIBLES DANS LE DOSSIER
+// assets/upload/
+// https://www.php.net/manual/fr/function.glob.php
+$tabFichier = glob("assets/upload/*");
+// JE VAIS LE RAJOUTER A LA REPONSE JSON
+$tabAssoJson["tabUpload"] = $tabFichier;
