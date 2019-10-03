@@ -359,83 +359,110 @@
 
 ## INSCRIPTION ET LOGIN
 
-SI ON VEUT QU'UN VISITEUR PUISSE DEVENIR UN MEMBRE 
-ET ENSUITE PUBLIER DES ANNONCES
+    SI ON VEUT QU'UN VISITEUR PUISSE DEVENIR UN MEMBRE 
+    ET ENSUITE PUBLIER DES ANNONCES
 
-IL FAUT PROPOSER UN FORMULAIRE D'INSCRIPTION
-=> TRAITEMENT DE CE FORMULAIRE VA MEMORISER LES INFOS EN BASE DE DONNEES SQL
-
-
-
-MODELISATION DE LA BASE DE DONNEES 
-(Modèle Conceptuel des Données)
-
-AJOUTER UNE TABLE SQL membre
-    id            INT             INDEX=PRIMARY   AUTO_INCREMENT(A_I)
-    email         VARCHAR(160)
-    username      VARCHAR(160)
-    password      VARCHAR(160)
-    dateInscription    DATETIME
-    level           INT
+    IL FAUT PROPOSER UN FORMULAIRE D'INSCRIPTION
+    => TRAITEMENT DE CE FORMULAIRE VA MEMORISER LES INFOS EN BASE DE DONNEES SQL
 
 
-level (niveau) SERVIRA A DISTINGUER LES DIFFERENTS TYPES DE MEMBRES
 
--1      INSCRIT MAIS BANNI
-0       INSCRIT MAIS PAS ACTIF
-10      INSCRIT ET ACTIF
-100     ADMIN
+    MODELISATION DE LA BASE DE DONNEES 
+    (Modèle Conceptuel des Données)
 
-ATTENTION AU RGPD: Données personnelles
-https://www.cnil.fr/fr/rgpd-par-ou-commencer
+    AJOUTER UNE TABLE SQL membre
+        id            INT             INDEX=PRIMARY   AUTO_INCREMENT(A_I)
+        email         VARCHAR(160)
+        username      VARCHAR(160)
+        password      VARCHAR(160)
+        dateInscription    DATETIME
+        level           INT
+
+
+    level (niveau) SERVIRA A DISTINGUER LES DIFFERENTS TYPES DE MEMBRES
+
+    -1      INSCRIT MAIS BANNI
+    0       INSCRIT MAIS PAS ACTIF
+    10      INSCRIT ET ACTIF
+    100     ADMIN
+
+    ATTENTION AU RGPD: Données personnelles
+    https://www.cnil.fr/fr/rgpd-par-ou-commencer
 
 
 ## CRUD SUR LA TABLE membre
 
-SUR LA CREATION DE COMPTE, ON VA HASHER LE MOT DE PASSE
-POUR EVITER DE SE FAIRE VOLER LES MOTS DE PASSE DES UTILISATEURS
+    SUR LA CREATION DE COMPTE, ON VA HASHER LE MOT DE PASSE
+    POUR EVITER DE SE FAIRE VOLER LES MOTS DE PASSE DES UTILISATEURS
 
 
-HASHAGE ???
-    A SENS UNIQUE, ON NE VA JAMAIS DECRYPTER
-    LA SECURITE TIENT SUR LA DIFFICULTE A DECRYPTER
+    HASHAGE ???
+        A SENS UNIQUE, ON NE VA JAMAIS DECRYPTER
+        LA SECURITE TIENT SUR LA DIFFICULTE A DECRYPTER
 
 
-CRYPTAGE ???
-    CLE DE CRYPTAGE => GARDEE SECRETE QUI DONNE LA SECURITE
-    SANS LA CLE DE CRYPTAGE => ON NE PEUT PAS DECRYPTER
-    SI ON A LA CLE ALORS ON PEUT DECRYPTER
+    CRYPTAGE ???
+        CLE DE CRYPTAGE => GARDEE SECRETE QUI DONNE LA SECURITE
+        SANS LA CLE DE CRYPTAGE => ON NE PEUT PAS DECRYPTER
+        SI ON A LA CLE ALORS ON PEUT DECRYPTER
 
-CODAGE ???
-
-
-
-ON VA STOCKER LE MOT DE PASSE SOUS UNE FORME HACHEE
-https://www.php.net/manual/fr/function.password-hash.php
-
-=> PERSONNE NE POURRA DEVINER LE MOT DE PASSE ORIGINAL
-=> LE HACHAGE DETRUIT DE L'INFORMATION
-
-exemple:
-* Fazia Bouheraoua
-* grain de sel: juiuhjhkYUYUI676788 (créé aléatoirement)
-* hashage: FzBhrjhjhk/juiuhjhkYUYUI676788
-
-si on a le mot original on obtiendra le meme hashage
-mais si on part du hashage on aura trop de possibilités pour deviner le mot original
+    CODAGE ???
 
 
-https://informationisbeautiful.net/visualizations/million-lines-of-code/
 
-SECURITE SUPPLEMENTAIRE POUR LE HASHAGE
-* PHP RAJOUTE UN "SALT" (UN GRAIN DE SEL) POUR COMPLIQUER LA VIE AUX PIRATES
-* LE GRAIN DE SEL VA PRODUIRE UN HASHAGE DIFFERENT MEME SI ON A 2 MOTS DE PASSE IDENTIQUES
-* (PROTECTION CONTRE LES ATTAQUES PAR DICTIONNAIRE INVERSE...)
+    ON VA STOCKER LE MOT DE PASSE SOUS UNE FORME HACHEE
+    https://www.php.net/manual/fr/function.password-hash.php
+
+    => PERSONNE NE POURRA DEVINER LE MOT DE PASSE ORIGINAL
+    => LE HACHAGE DETRUIT DE L'INFORMATION
+
+    exemple:
+    * Fazia Bouheraoua
+    * grain de sel: juiuhjhkYUYUI676788 (créé aléatoirement)
+    * hashage: FzBhrjhjhk/juiuhjhkYUYUI676788
+
+    si on a le mot original on obtiendra le meme hashage
+    mais si on part du hashage on aura trop de possibilités pour deviner le mot original
 
 
-ET ENSUITE, ON VA POUVOIR VALIDER LE LOGIN AVEC LA FONCTION password_verify
+    https://informationisbeautiful.net/visualizations/million-lines-of-code/
 
-https://www.php.net/manual/fr/function.password-verify.php
+    SECURITE SUPPLEMENTAIRE POUR LE HASHAGE
+    * PHP RAJOUTE UN "SALT" (UN GRAIN DE SEL) POUR COMPLIQUER LA VIE AUX PIRATES
+    * LE GRAIN DE SEL VA PRODUIRE UN HASHAGE DIFFERENT MEME SI ON A 2 MOTS DE PASSE IDENTIQUES
+    * (PROTECTION CONTRE LES ATTAQUES PAR DICTIONNAIRE INVERSE...)
 
+
+    ET ENSUITE, ON VA POUVOIR VALIDER LE LOGIN AVEC LA FONCTION password_verify
+
+    https://www.php.net/manual/fr/function.password-verify.php
+
+
+## RESUME DES ETAPES DE LA SEMAINE POUR AVANCER SUR LE PROJET
+
+    * CHOIX DE L'EQUIPE
+    * CHOIX DU PROJET
+    * LISTE DES PAGES DU SITE
+    * LISTE DES TEMPLATES NECESSAIRES POUR CREER CES PAGES
+    * LISTE DES FORMULAIRES DANS CHAQUE TEMPLATE
+    *   DETECTER LES FORMULAIRE COMPLIQUES
+            UPDATE
+            UPLOAD (envoyer un fichier de son ordinateur vers le site web)
+    * FAIRE LES SCENARIOS D'UTILISATION
+    * FAIRE LA LISTE DES SCENARIOS NECESSAIRES POUR LA PREMIERE VERSION
+    * => DONNE LES TEMPLATES A CODER POUR CETTE PREMIERE VERSION
+
+    exemple:
+    le visiteur arrive sur la page d'accueil 
+        => il faut coder le template de la page d'accueil
+    le visiteur peut se créer un compte
+        => il faut coder le formulaire de création de compte (CREATE)
+    le visiteur peut se connecter
+        => il faut coder le formulaire de login (READ)
+    le visiteur peut accéder à son espace membre
+        => il faut coder le template de l'espace membre
+    le membre peut créer une annonce
+        => il faut coder le formulaire de création d'annonce 
+            (CREATE MAIS AVEC UPLOAD => WARNING...)            
 
 
