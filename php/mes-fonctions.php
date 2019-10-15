@@ -18,6 +18,10 @@ function creerConnexionBDD()
     $dsn = "mysql:dbname=$database;host=localhost;charset=utf8mb4";
     // créer la connexion avec MySQL
     $dbh = new PDO($dsn, $user, $password);
+    // new VA CREER UN OBJET DE LA CLASSE PDO
+    // ET ON TRANSMET AU CONSTRUCTEUR LES PARAMETRES DE CONNEXION
+    // PHP ACTIVE CETTE LIGNE DE CODE AUTOMATIQUEMENT
+    // $dbh -> __construct($dsn, $user, $password);
 
     return $dbh;
 }
